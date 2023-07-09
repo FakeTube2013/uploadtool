@@ -28,6 +28,8 @@ namespace YT2013.UploadTool {
             using(var client = new HttpClient()) {
                 var data = new Backend.Schemas.LoginSchema();
 
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+
                 data.Username = UsernameTextBox.Text;
                 data.Password = Utils.GetSHA256(PasswordTextBox.Text);
                 data.FromApp = true;
